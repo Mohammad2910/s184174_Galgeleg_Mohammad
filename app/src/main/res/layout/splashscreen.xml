@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/SplashBackground">
+
+    <EditText
+        android:id="@+id/Titel"
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:ems="10"
+        android:fontFamily="@font/aud"
+        android:inputType="textPersonName"
+        android:text="@string/galgeleg"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/Udvikler"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:fontFamily="@font/aud"
+        android:inputType="textPersonName"
+        android:text="@string/af_mohammad_tawrat_nafiu_uddin_s184174"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titel" />
+
+    <ImageView
+        android:id="@+id/Splashbilled"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/galgeleg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Udvikler" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
