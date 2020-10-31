@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class Galgespil extends AppCompatActivity implements View.OnClickListener {
     private Galgelogik galgelogik = new Galgelogik();
     private EditText input;
     private TextView ord;
+    private Galgen galgen = new Galgen();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +23,16 @@ public class Galgespil extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.galgespil);
 
         TextView besked = findViewById(R.id.Besked);
-
-        ImageView galge = findViewById(R.id.Galge);
         Button gaet = findViewById(R.id.button);
         input = findViewById(R.id.InputBogstav);
         ord = findViewById(R.id.Ordet);
 
+        getSupportFragmentManager().beginTransaction().add(R.id.FrameLayout, galgen).addToBackStack(null).commit();
 
         besked.setText(R.string.Besked);
         ord.setText(galgelogik.getSynligtOrd());
-        galge.setImageResource(R.drawable.galge);
         gaet.setOnClickListener(this);
+
 
     }
 
@@ -40,5 +41,6 @@ public class Galgespil extends AppCompatActivity implements View.OnClickListener
         galgelogik.gætBogstav(input.getText().toString());
         ord.setText(galgelogik.getSynligtOrd());
         input.setText("");
+        galgen.UpdatePicture(galgelogik.getAntalForkerteBogstaver());
     }
 }
