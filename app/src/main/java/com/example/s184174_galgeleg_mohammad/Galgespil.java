@@ -26,7 +26,6 @@ public class Galgespil extends AppCompatActivity implements View.OnClickListener
         Button gaet = findViewById(R.id.button);
         input = findViewById(R.id.InputBogstav);
         ord = findViewById(R.id.Ordet);
-
         getSupportFragmentManager().beginTransaction().add(R.id.FrameLayout, galgen).addToBackStack(null).commit();
 
         besked.setText(R.string.Besked);

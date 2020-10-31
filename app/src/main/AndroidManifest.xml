@@ -19,6 +19,8 @@
         <activity android:name="com.example.s184174_galgeleg_mohammad.MainActivity"/>
         <activity android:name="com.example.s184174_galgeleg_mohammad.Galgespil"
             android:label="Spil startet"/>
+        <activity android:name="com.example.s184174_galgeleg_mohammad.Highscore"
+            android:label="Leaderboard"/>
     </application>
 
 </manifest>

@@ -6,4 +6,5 @@
     <string name="Besked">Nyt spil - det skjulte ord er: </string>
     <string name="g_t_et_bogstav">Gæt et bogstav</string>
     <string name="g_t">Gæt</string>
+    <string name="leaderboard">Leaderboard</string>
 </resources>

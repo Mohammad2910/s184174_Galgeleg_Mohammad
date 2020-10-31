@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
 public class Galgen extends Fragment {
-    ImageView imageView;
+    private ImageView imageView;
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
@@ -20,8 +20,8 @@ public class Galgen extends Fragment {
     }
 
 
-    public void UpdatePicture (int antal) {
-        switch (antal) {
+    public void UpdatePicture (int antalForkerteBogstaver) {
+        switch (antalForkerteBogstaver) {
             case 1:
                 imageView.setImageResource(R.drawable.forkert1);
                 break;
