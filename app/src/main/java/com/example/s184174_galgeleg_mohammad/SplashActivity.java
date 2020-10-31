@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.s184174_mohammad_galgeleg.R;
+import com.example.s184174_galgeleg_mohammad.R;
 
 /**
  * Created by AbhiAndroid
