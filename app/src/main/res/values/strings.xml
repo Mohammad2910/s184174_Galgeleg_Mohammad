@@ -7,4 +7,5 @@
     <string name="g_t_et_bogstav">Gæt et bogstav</string>
     <string name="g_t">Gæt</string>
     <string name="leaderboard">Leaderboard</string>
+    <string name="vundet">Du har vundet! Hurra</string>
 </resources>

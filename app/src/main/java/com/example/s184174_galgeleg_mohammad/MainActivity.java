@@ -7,20 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.s184174_galgeleg_mohammad.R;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button leaderboard;
-    private Button StartSpil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        StartSpil = findViewById(R.id.NytSpil);
-        StartSpil.setOnClickListener(this);
+        Button startSpil = findViewById(R.id.NytSpil);
+        startSpil.setOnClickListener(this);
 
-        leaderboard = findViewById(R.id.Leaderboard);
+        Button leaderboard = findViewById(R.id.Leaderboard);
         leaderboard.setOnClickListener(this);
     }
 

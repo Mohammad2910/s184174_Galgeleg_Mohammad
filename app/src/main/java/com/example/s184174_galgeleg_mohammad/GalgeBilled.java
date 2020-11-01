@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
-public class Galgen extends Fragment {
+public class GalgeBilled extends Fragment {
     private ImageView imageView;
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
