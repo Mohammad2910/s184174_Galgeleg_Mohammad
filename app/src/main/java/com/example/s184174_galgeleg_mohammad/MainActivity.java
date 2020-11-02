@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         context = new Context(this);
+
         getSupportFragmentManager().beginTransaction().add(R.id.MainFrameLayout, hovedMenuFrag).addToBackStack(null).commit();
     }
 

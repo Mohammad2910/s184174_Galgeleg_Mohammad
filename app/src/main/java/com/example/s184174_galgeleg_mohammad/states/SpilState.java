@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 
-public class SpilState implements State {
+public class SpilState extends StateAdapter {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
@@ -37,6 +37,8 @@ public class SpilState implements State {
         muligeOrd.add("tyve");
         startNytSpil();
     }
+
+
 
     public ArrayList<String> getBrugteBogstaver() {
         return brugteBogstaver;

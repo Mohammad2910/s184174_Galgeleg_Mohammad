@@ -2,19 +2,20 @@ package com.example.s184174_galgeleg_mohammad;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
 import com.example.s184174_galgeleg_mohammad.states.SpilState;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Context {
-
 
     private MainActivity ui;
     private State currentState;
 
     public Context(MainActivity UI) {
         ui = UI;
-        currentState = new SpilState();
+        currentState = new HovedMenuState();
         currentState.onEnterState(this);
     }
 
