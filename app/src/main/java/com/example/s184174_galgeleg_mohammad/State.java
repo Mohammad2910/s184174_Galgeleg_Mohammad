@@ -1,5 +1,26 @@
 package com.example.s184174_galgeleg_mohammad;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 public interface State {
-    void onClickgaet(Context context);
+    void onEnterState(Context context);
+    ArrayList<String> getBrugteBogstaver();
+    String getSynligtOrd();
+    String getOrdet();
+    int getAntalForkerteBogstaver();
+    boolean erSidsteBogstavKorrekt();
+    boolean erSpilletVundet();
+    boolean erSpilletTabt();
+    boolean erSpilletSlut();
+    void startNytSpil();
+    void opdaterSynligtOrd();
+    void gætBogstav(String bogstav);
+    void logStatus();
+    /* static String hentUrl(String url) throws IOException {
+        return null;
+    }
+    void hentOrdFraDr() throws Exception;
+    void hentOrdFraRegneark(String sværhedsgrader) throws Exception;*/
+
 }
