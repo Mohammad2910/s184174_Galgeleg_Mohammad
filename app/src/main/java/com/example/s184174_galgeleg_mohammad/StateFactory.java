@@ -1,6 +1,7 @@
 package com.example.s184174_galgeleg_mohammad;
 
 import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
+import com.example.s184174_galgeleg_mohammad.states.LeaderboardState;
 import com.example.s184174_galgeleg_mohammad.states.SpilState;
 import com.example.s184174_galgeleg_mohammad.states.TabtState;
 import com.example.s184174_galgeleg_mohammad.states.VundetState;
@@ -22,6 +23,8 @@ public class StateFactory {
             return new VundetState();
         } else if (stateType.equalsIgnoreCase("tabtstate")) {
             return new TabtState();
+        } else if (stateType.equalsIgnoreCase("leaderboardstate")) {
+            return new LeaderboardState();
         }
 
         return null;

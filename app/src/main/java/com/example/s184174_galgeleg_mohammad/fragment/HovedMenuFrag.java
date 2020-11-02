@@ -41,7 +41,8 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
             logik.setCurrentState("SpilState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).addToBackStack(null).commit();
         } else if (v == rod.findViewById(R.id.Leaderboard)) {
-            getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeBilled()).addToBackStack(null).commit();
+            logik.setCurrentState("leaderboardstate");
+            getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new LeaderboardFrag()).addToBackStack(null).commit();
         }
     }
 }
