@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Context {
 
+    private StateFactory stateFactory = new StateFactory();
     private MainActivity ui;
     private State currentState;
 
@@ -19,8 +20,8 @@ public class Context {
         currentState.onEnterState(this);
     }
 
-    public void setCurrentState(State state){
-        currentState = state;
+    public void setCurrentState(String state){
+        currentState = stateFactory.getState(state);
         currentState.onEnterState(this);
     }
 

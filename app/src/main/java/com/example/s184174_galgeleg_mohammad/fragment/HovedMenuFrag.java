@@ -38,7 +38,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == rod.findViewById(R.id.NytSpil)){
-            logik.setCurrentState(new SpilState());
+            logik.setCurrentState("SpilState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).addToBackStack(null).commit();
         } else if (v == rod.findViewById(R.id.Leaderboard)) {
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeBilled()).addToBackStack(null).commit();

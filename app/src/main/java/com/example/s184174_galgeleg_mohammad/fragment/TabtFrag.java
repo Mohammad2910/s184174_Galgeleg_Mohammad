@@ -42,10 +42,10 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v == rod.findViewById(R.id.nytspiltabt)) {
-            logik.setCurrentState(new SpilState());
+            logik.setCurrentState("SpilState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).commit();
         } else if ( v == rod.findViewById(R.id.hjemtabt)) {
-            logik.setCurrentState(new HovedMenuState());
+            logik.setCurrentState("HovedMenuState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new HovedMenuFrag()).commit();
         }
     }

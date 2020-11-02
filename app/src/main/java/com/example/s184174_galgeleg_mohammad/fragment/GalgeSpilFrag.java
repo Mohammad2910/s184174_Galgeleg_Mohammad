@@ -57,7 +57,7 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
             if (logik.erSpilletVundet()) {
                 ordet.setText(logik.getSynligtOrd());
                 besked.setText(R.string.vundet);
-                logik.setCurrentState(new VundetState());
+                logik.setCurrentState("vundetstate");
                 logik.onEnterState(logik);
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -68,7 +68,7 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
             } else if (logik.erSpilletTabt()) {
                 ordet.setText(logik.getSynligtOrd());
                 besked.setText(R.string.tabt);
-                logik.setCurrentState(new TabtState());
+                logik.setCurrentState("tabtstate");
                 logik.onEnterState(logik);
                 new Handler().postDelayed(new Runnable() {
                     @Override

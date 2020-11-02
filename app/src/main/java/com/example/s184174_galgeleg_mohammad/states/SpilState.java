@@ -134,6 +134,7 @@ public class SpilState extends StateAdapter {
     }
 
 
+
     public static String hentUrl(String url) throws IOException {
         System.out.println("Henter data fra " + url);
         BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
