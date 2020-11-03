@@ -26,6 +26,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
     private MainActivity main;
     EditText spillernavn;
     int point;
+    int a = 0;
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
@@ -70,7 +71,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
                 Toast.makeText(main, "Advarsel: Indtast et navn", Toast.LENGTH_SHORT).show();
             } else {
                 logik.setCurrentState("leaderboardstate");
-                logik.AddToList(spillernavn.getText().toString(), point, main.getList());
+                logik.AddToList(spillernavn.getText().toString(), point, logik.getLeaderboard());
                 Toast.makeText(main, "Gemt", Toast.LENGTH_SHORT).show();
                 logik.setCurrentState("vundetstate");
             }

@@ -32,9 +32,7 @@ public class LeaderboardFrag extends Fragment {
         logik = main.getContext();
 
 
-        ArrayList<String> a = main.getList();
-
-        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.list_element, R.id.listElement, a){
+        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.list_element, R.id.listElement, logik.getLeaderboard()){
 
             @Override
             public View getView(int position, View cachedView, ViewGroup parent){

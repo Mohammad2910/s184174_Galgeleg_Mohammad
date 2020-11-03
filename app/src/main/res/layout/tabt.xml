@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="206dp"
         android:textSize="20dp"
-        android:text="@string/better_luck_next_time_bitch"
+        android:text="@string/better_luck_next_time"
         android:fontFamily="@font/aud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

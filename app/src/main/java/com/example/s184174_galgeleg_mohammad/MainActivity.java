@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity{
     private HovedMenuFrag hovedMenuFrag = new HovedMenuFrag();
     private Context context;
-    private ArrayList<String> leaderboard = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +26,5 @@ public class MainActivity extends AppCompatActivity{
         return context;
     }
 
-    public ArrayList getList() {
-        return leaderboard;
-    }
 
 }
