@@ -58,7 +58,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
         hjem.setOnClickListener(this);
 
         // Fået inspiration til følgende kode fra denne side:
-        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne gå styre back knappen
+        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne holde styr på back knappens funktion
         OnBackPressedCallback callback = new OnBackPressedCallback(true /*enabled by default*/) {
             @Override
             public void handleOnBackPressed() {
@@ -90,9 +90,12 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
             logik.setCurrentState("HovedMenuState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new HovedMenuFrag()).commit();
         } else if (v == rod.findViewById(R.id.gemButton)) {
+            // Laver et tjek for at der er skrevet mindst et bogstav under navn
             if (spillernavn.getText().toString().equals("")) {
                 Toast.makeText(main, "Advarsel: Indtast et navn", Toast.LENGTH_SHORT).show();
             } else {
+                // Skifter lige midlertidigt state, så jeg kan gemme navn og point med
+                // leaderboardstate's metode på den globale leaderboard List (attribut i Context).
                 logik.setCurrentState("leaderboardstate");
                 logik.AddToList(spillernavn.getText().toString(), point, logik.getLeaderboard());
                 Toast.makeText(main, "Gemt", Toast.LENGTH_SHORT).show();

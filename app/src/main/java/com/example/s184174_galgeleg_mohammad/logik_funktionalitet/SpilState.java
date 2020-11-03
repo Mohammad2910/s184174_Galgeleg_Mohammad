@@ -26,21 +26,11 @@ public class SpilState extends StateAdapter {
 
 
     public void onEnterState(Context context) {
-        /*muligeOrd.add("bil");
-        muligeOrd.add("computer");
-        muligeOrd.add("programmering");
-        muligeOrd.add("motorvej");
-        muligeOrd.add("busrute");
-        muligeOrd.add("gangsti");
-        muligeOrd.add("skovsnegl");
-        muligeOrd.add("solsort");
-        muligeOrd.add("tyve");*/
         try {
             muligeOrd = hentOrdFraRegneark("2");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //startNytSpil();
     }
 
 
@@ -221,8 +211,4 @@ public class SpilState extends StateAdapter {
         //startNytSpil();
         return muligeOrd;
     }
-
-    /*public static void main(String[] args) throws Exception {
-        new Galgelogik().hentOrdFraRegneark("2");
-    }*/
 }

@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity{
 
         context = new Context(this);
 
+        // Vi har en aktivitet som skifter fragmenter
         getSupportFragmentManager().beginTransaction().add(R.id.MainFrameLayout, hovedMenuFrag).addToBackStack(null).commit();
     }
 

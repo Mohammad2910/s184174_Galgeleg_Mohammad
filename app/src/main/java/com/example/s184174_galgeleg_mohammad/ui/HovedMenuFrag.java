@@ -1,5 +1,7 @@
 package com.example.s184174_galgeleg_mohammad.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import com.example.s184174_galgeleg_mohammad.Context;
@@ -27,6 +30,9 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
         rod = i.inflate(R.layout.frag_hovedmenu, container, false);
+
+        // Da der gøres brug af state-pattern så skal vores UI bruge context-klassen til funktionaliteten
+        // Men man kan kun have en context-klasse hvis man vil holde styr på states og derfor kalder jeg på MainActivity's context objekt.
         main = (MainActivity) getActivity();
         logik = main.getContext();
 
@@ -36,6 +42,40 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
         leaderboardknap = rod.findViewById(R.id.Leaderboard);
         leaderboardknap.setOnClickListener(this);
 
+        // Fået inspiration til følgende kode fra disse to sider:
+        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne få styr på back knappen
+        // https://www.geeksforgeeks.org/android-alert-dialog-box-and-how-to-create-it/ - For at vise en alert
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /*enabled by default*/) {
+            @Override
+            public void handleOnBackPressed() {
+                // AlertDialog Builder class
+                AlertDialog.Builder builder = new AlertDialog.Builder(main);
+                // Set the message show for the Alert time
+                builder.setMessage("Vil du afslutte spillet?");
+                builder.setTitle("Advarsel!");
+                // Set Cancelable false, for when the user clicks on the outside of the Dialog Box then it will remain show
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Ja",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        main.finish();
+                    }
+                });
+                builder.setNegativeButton("Nej", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                // Create the Alert dialog
+                AlertDialog alertDialog = builder.create();
+
+                // Show the Alert Dialog box
+                alertDialog.show(); } };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
         return rod;
     }
 
@@ -43,6 +83,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == rod.findViewById(R.id.NytSpil)){
+            // Starter spillet med ord fra regneark med sværhedsgrad 2 og skifter til spille fragment
             bgThread.execute(()->{
                 logik.setCurrentState("SpilState");
                 uiThread.post(()->{

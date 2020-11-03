@@ -46,7 +46,7 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
         hjem.setOnClickListener(this);
 
         // Fået inspiration til følgende kode fra denne side:
-        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne gå styre back knappen
+        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne holde styr på back knappen
         OnBackPressedCallback callback = new OnBackPressedCallback(true /*enabled by default*/) {
             @Override
             public void handleOnBackPressed() {
