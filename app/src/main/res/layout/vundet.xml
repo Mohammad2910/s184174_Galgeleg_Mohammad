@@ -3,14 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="?android:attr/actionBarSize">
 
     <TextView
         android:id="@+id/vundet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="269dp"
+        android:layout_marginTop="59dp"
+        android:gravity="center_horizontal"
         android:text="@string/hurra_du_har_vundet"
+        android:textSize="20dp"
+        android:fontFamily="@font/aud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,19 +23,80 @@
         android:id="@+id/nytspil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="136dp"
         android:text="Nyt spil"
+        android:fontFamily="@font/aud"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/hjem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
+        android:layout_marginEnd="41dp"
         android:text="Hjem"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBottom_toBottomOf="@+id/nytspil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/nytspil" />
+
+    <TextView
+        android:id="@+id/forkerte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginEnd="99dp"
+        android:text="Antal forkerte: 0"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBaseline_toBaselineOf="@+id/point"
+        app:layout_constraintEnd_toEndOf="@+id/vundet"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="37dp"
+        android:text="Antal point: 15"
+        android:fontFamily="@font/aud"
+        app:layout_constraintStart_toEndOf="@+id/forkerte"
+        app:layout_constraintTop_toBottomOf="@+id/vundet" />
+
+    <TextView
+        android:id="@+id/GemBesked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="333dp"
+        android:text="Indtast venligst dit navn, hvis du vil gemme din score"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/gemButton" />
+
+    <EditText
+        android:id="@+id/spillernavn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Indtast spillernavn"
+        android:fontFamily="@font/aud"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/gemButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GemBesked" />
+
+    <Button
+        android:id="@+id/gemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:text="Gem"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBaseline_toBaselineOf="@+id/spillernavn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spillernavn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

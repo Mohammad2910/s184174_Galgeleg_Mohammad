@@ -12,8 +12,6 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
-import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
-import com.example.s184174_galgeleg_mohammad.states.SpilState;
 
 public class TabtFrag extends Fragment implements View.OnClickListener {
     View rod;
@@ -28,6 +26,10 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
         logik = main.getContext();
 
         TextView textView = rod.findViewById(R.id.tabt);
+
+        String ord = logik.getPrefs().getString("DetRigtigeOrd", "Ordet findes ikke :(");
+        TextView ordet = rod.findViewById(R.id.OrdetTabt);
+        ordet.setText("Ordet var: " + ord);
 
         Button nytSpil = rod.findViewById(R.id.nytspiltabt);
         nytSpil.setOnClickListener(this);

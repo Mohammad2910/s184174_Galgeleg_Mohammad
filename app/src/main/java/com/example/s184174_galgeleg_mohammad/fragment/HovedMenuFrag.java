@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
-import com.example.s184174_galgeleg_mohammad.states.SpilState;
 
 public class HovedMenuFrag extends Fragment implements View.OnClickListener {
     Button spilknap, leaderboardknap;

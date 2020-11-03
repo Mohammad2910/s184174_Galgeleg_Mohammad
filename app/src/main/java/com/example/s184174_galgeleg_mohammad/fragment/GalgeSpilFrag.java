@@ -13,8 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
-import com.example.s184174_galgeleg_mohammad.states.TabtState;
-import com.example.s184174_galgeleg_mohammad.states.VundetState;
+
 
 public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
     private Context logik;
@@ -22,7 +21,8 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
     private GalgeBilled galgeBilled = new GalgeBilled();
     private TextView besked;
     private TextView ordet;
-    private EditText input;
+    private EditText inputBogstav;
+
 
 
 
@@ -40,7 +40,7 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
         ordet = rod.findViewById(R.id.Ordet);
         ordet.setText(logik.getSynligtOrd());
 
-        input = rod.findViewById(R.id.InputBogstav);
+        inputBogstav = rod.findViewById(R.id.InputBogstav);
         Button gaet = rod.findViewById(R.id.Gæt);
         gaet.setOnClickListener(this);
 
@@ -50,15 +50,16 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
 
     public void onClick(View v) {
         if (v == rod.findViewById(R.id.Gæt)) {
-            logik.gætBogstav(input.getText().toString());
+            logik.gætBogstav(inputBogstav.getText().toString());
             ordet.setText(logik.getSynligtOrd());
-            input.setText("");
+            inputBogstav.setText("");
             galgeBilled.UpdatePicture(logik.getAntalForkerteBogstaver());
+
             if (logik.erSpilletVundet()) {
-                ordet.setText(logik.getSynligtOrd());
                 besked.setText(R.string.vundet);
+                logik.getPrefs().edit().putInt("Antal", logik.getAntalForkerteBogstaver()).apply();
+                logik.getPrefs().edit().putInt("Point", logik.getPoint()).apply();
                 logik.setCurrentState("vundetstate");
-                logik.onEnterState(logik);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -66,10 +67,9 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
                     }
                 }, 1000);
             } else if (logik.erSpilletTabt()) {
-                ordet.setText(logik.getSynligtOrd());
                 besked.setText(R.string.tabt);
+                logik.getPrefs().edit().putString("DetRigtigeOrd", logik.getOrdet()).apply();
                 logik.setCurrentState("tabtstate");
-                logik.onEnterState(logik);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -79,4 +79,5 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
             }
         }
     }
+
 }

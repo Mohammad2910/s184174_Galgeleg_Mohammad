@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,20 +14,27 @@ import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
 
+import java.util.ArrayList;
+
 public class LeaderboardFrag extends Fragment {
     View rod;
     private Context logik;
     private MainActivity main;
     ListView leaderboardliste;
 
+
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
         rod = i.inflate(R.layout.leaderboard, container, false);
         leaderboardliste = rod.findViewById(R.id.Leaderboard);
 
-        String[] test = {"a","b","c","d"};
+        main = (MainActivity) getActivity();
+        logik = main.getContext();
 
-        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.list_element, R.id.listElement, test){
+
+        ArrayList<String> a = main.getList();
+
+        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.list_element, R.id.listElement, a){
 
             @Override
             public View getView(int position, View cachedView, ViewGroup parent){
@@ -40,11 +46,6 @@ public class LeaderboardFrag extends Fragment {
         };
 
         leaderboardliste.setAdapter(leaderboardAdapter);
-
-
-        main = (MainActivity) getActivity();
-        logik = main.getContext();
-
 
         return rod;
     }

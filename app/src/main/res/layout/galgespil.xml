@@ -10,13 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="375dp"
+        android:layout_marginBottom="19dp"
         android:text="En besked"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBottom_toTopOf="@+id/Ordet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FrameLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Ordet"
@@ -25,12 +24,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="Et ord"
+        android:fontFamily="@font/aud"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <EditText
         android:id="@+id/InputBogstav"
@@ -38,12 +37,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="37dp"
         android:ems="10"
         android:hint="@string/g_t_et_bogstav"
+        android:fontFamily="@font/aud"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Ordet" />
 
@@ -51,8 +50,9 @@
         android:id="@+id/Gæt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:text="@string/g_t"
+        android:fontFamily="@font/aud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InputBogstav" />
@@ -61,9 +61,7 @@
         android:id="@+id/FrameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="106dp"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintBottom_toTopOf="@+id/Besked"
+        android:layout_marginTop="126dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

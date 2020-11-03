@@ -21,19 +21,20 @@ public class SpilState extends StateAdapter {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
+    private int point;
 
 
 
     public void onEnterState(Context context) {
         muligeOrd.add("bil");
-        muligeOrd.add("computer");
+        /*muligeOrd.add("computer");
         muligeOrd.add("programmering");
         muligeOrd.add("motorvej");
         muligeOrd.add("busrute");
         muligeOrd.add("gangsti");
         muligeOrd.add("skovsnegl");
         muligeOrd.add("solsort");
-        muligeOrd.add("tyve");
+        muligeOrd.add("tyve");*/
         startNytSpil();
     }
 
@@ -49,6 +50,10 @@ public class SpilState extends StateAdapter {
 
     public String getOrdet() {
         return ordet;
+    }
+
+    public int getPoint(){
+        return point;
     }
 
     public int getAntalForkerteBogstaver() {
@@ -75,6 +80,7 @@ public class SpilState extends StateAdapter {
     public void startNytSpil() {
         brugteBogstaver.clear();
         antalForkerteBogstaver = 0;
+        point = 0;
         spilletErVundet = false;
         spilletErTabt = false;
         if (muligeOrd.isEmpty()) throw new IllegalStateException("Listen over mulige ord er tom!");
@@ -82,7 +88,6 @@ public class SpilState extends StateAdapter {
         System.out.println("Nyt spil - det skjulte ord er: "+ordet);
         opdaterSynligtOrd();
     }
-
 
     public void opdaterSynligtOrd() {
         synligtOrd = "";
@@ -108,12 +113,14 @@ public class SpilState extends StateAdapter {
 
         if (ordet.contains(bogstav)) {
             sidsteBogstavVarKorrekt = true;
+            point = point + 5;
             System.out.println("Bogstavet var korrekt: " + bogstav);
         } else {
             // Vi gættede på et bogstav der ikke var i ordet.
             sidsteBogstavVarKorrekt = false;
             System.out.println("Bogstavet var IKKE korrekt: " + bogstav);
             antalForkerteBogstaver = antalForkerteBogstaver + 1;
+            point = point - 2;
             if (antalForkerteBogstaver >= 6) {
                 spilletErTabt = true;
             }

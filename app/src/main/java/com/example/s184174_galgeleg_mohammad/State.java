@@ -1,6 +1,5 @@
 package com.example.s184174_galgeleg_mohammad;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public interface State {
@@ -8,6 +7,7 @@ public interface State {
     ArrayList<String> getBrugteBogstaver();
     String getSynligtOrd();
     String getOrdet();
+    int getPoint();
     int getAntalForkerteBogstaver();
     boolean erSidsteBogstavKorrekt();
     boolean erSpilletVundet();
@@ -17,6 +17,8 @@ public interface State {
     void opdaterSynligtOrd();
     void gætBogstav(String bogstav);
     void logStatus();
+
+    void AddToList (String navn, int point, ArrayList<String> leaderboard);
     /* static String hentUrl(String url) throws IOException {
         return null;
     }

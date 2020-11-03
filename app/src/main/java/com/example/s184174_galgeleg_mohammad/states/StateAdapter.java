@@ -66,4 +66,14 @@ public class StateAdapter implements State {
     public void logStatus() {
     }
 
+    @Override
+    public int getPoint(){
+        return 0;
+    }
+
+    @Override
+    public void AddToList (String navn, int point, ArrayList<String> leaderboard) {
+    }
+
+
 }
