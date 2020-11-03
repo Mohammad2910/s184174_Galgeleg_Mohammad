@@ -40,6 +40,8 @@
         android:layout_marginTop="37dp"
         android:ems="10"
         android:hint="@string/g_t_et_bogstav"
+        android:digits="abcdefghijklmnopqrstuvxyzæøåABCDEFGHIJKLMNOPQRSTUVXYZÆØÅ"
+        android:maxLength="1"
         android:fontFamily="@font/aud"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
