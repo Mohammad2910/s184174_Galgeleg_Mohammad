@@ -1,4 +1,4 @@
-package com.example.s184174_galgeleg_mohammad.fragment;
+package com.example.s184174_galgeleg_mohammad.ui;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,7 +11,6 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 
 import com.example.s184174_galgeleg_mohammad.Context;
-import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
 
 import java.util.concurrent.Executor;

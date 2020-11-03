@@ -1,11 +1,4 @@
-package com.example.s184174_galgeleg_mohammad;
-
-import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
-import com.example.s184174_galgeleg_mohammad.states.LeaderboardState;
-import com.example.s184174_galgeleg_mohammad.states.SpilState;
-import com.example.s184174_galgeleg_mohammad.states.TabtState;
-import com.example.s184174_galgeleg_mohammad.states.VundetState;
-import com.google.android.material.tabs.TabLayout;
+package com.example.s184174_galgeleg_mohammad.logik_funktionalitet;
 
 public class StateFactory {
 

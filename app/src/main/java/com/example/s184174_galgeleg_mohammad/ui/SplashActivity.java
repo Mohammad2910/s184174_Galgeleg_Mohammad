@@ -1,9 +1,11 @@
-package com.example.s184174_galgeleg_mohammad;
+package com.example.s184174_galgeleg_mohammad.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.s184174_galgeleg_mohammad.R;
 
 public class SplashActivity extends Activity {
 
@@ -17,11 +19,11 @@ public class SplashActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(SplashActivity.this,MainActivity.class);
+                Intent intent=new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
-        },1000);
+        },2500);
 
     }
 }

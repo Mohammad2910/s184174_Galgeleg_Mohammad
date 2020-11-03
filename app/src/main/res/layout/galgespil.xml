@@ -45,6 +45,7 @@
         android:hint="@string/g_t_et_bogstav"
         android:inputType="textPersonName"
         android:maxLength="1"
+        android:imeOptions="actionSend"
         app:layout_constraintBottom_toTopOf="@+id/Gæt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

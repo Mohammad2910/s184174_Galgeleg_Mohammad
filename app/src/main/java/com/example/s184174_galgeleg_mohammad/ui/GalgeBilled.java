@@ -1,4 +1,4 @@
-package com.example.s184174_galgeleg_mohammad.fragment;
+package com.example.s184174_galgeleg_mohammad.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

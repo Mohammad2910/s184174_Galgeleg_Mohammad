@@ -1,4 +1,4 @@
-package com.example.s184174_galgeleg_mohammad.fragment;
+package com.example.s184174_galgeleg_mohammad.ui;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,18 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import com.example.s184174_galgeleg_mohammad.Context;
-import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
-import com.example.s184174_galgeleg_mohammad.states.Alert;
 
 
-public class GalgeSpilFrag extends Fragment implements View.OnClickListener, IGalgeSpilFrag {
+public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
     private Context logik;
     private MainActivity main;
     private GalgeBilled galgeBilled = new GalgeBilled();

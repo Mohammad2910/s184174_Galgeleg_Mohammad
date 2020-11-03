@@ -1,8 +1,11 @@
-package com.example.s184174_galgeleg_mohammad;
+package com.example.s184174_galgeleg_mohammad.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.s184174_galgeleg_mohammad.fragment.HovedMenuFrag;
+
+import com.example.s184174_galgeleg_mohammad.Context;
+import com.example.s184174_galgeleg_mohammad.R;
+import com.example.s184174_galgeleg_mohammad.ui.HovedMenuFrag;
 
 public class MainActivity extends AppCompatActivity{
     private HovedMenuFrag hovedMenuFrag = new HovedMenuFrag();

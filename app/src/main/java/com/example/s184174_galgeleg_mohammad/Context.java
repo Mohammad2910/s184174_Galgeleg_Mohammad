@@ -3,7 +3,10 @@ package com.example.s184174_galgeleg_mohammad;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
+import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.HovedMenuState;
+import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.State;
+import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.StateFactory;
+import com.example.s184174_galgeleg_mohammad.ui.MainActivity;
 
 import java.util.ArrayList;
 
