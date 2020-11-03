@@ -1,10 +1,8 @@
 package com.example.s184174_galgeleg_mohammad.fragment;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
 import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
-import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
-import com.example.s184174_galgeleg_mohammad.states.SpilState;
-import com.example.s184174_galgeleg_mohammad.states.VundetState;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -61,6 +57,21 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
 
         Button hjem = rod.findViewById(R.id.hjem);
         hjem.setOnClickListener(this);
+
+        // Fået inspiration til følgende kode fra denne side:
+        // https://developer.android.com/guide/navigation/navigation-custom-back  - For at kunne gå styre back knappen
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /*enabled by default*/) {
+            @Override
+            public void handleOnBackPressed() {
+                Toast.makeText(main,"Går tilbage til hovedmenuen",Toast.LENGTH_SHORT).show();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new HovedMenuFrag()).addToBackStack(null).commit();
+                    }
+                }, 1000);
+            } };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 
         return rod;
     }

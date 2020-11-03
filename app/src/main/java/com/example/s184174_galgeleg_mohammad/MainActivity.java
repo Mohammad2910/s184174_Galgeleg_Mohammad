@@ -1,12 +1,8 @@
 package com.example.s184174_galgeleg_mohammad;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 import com.example.s184174_galgeleg_mohammad.fragment.HovedMenuFrag;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
     private HovedMenuFrag hovedMenuFrag = new HovedMenuFrag();
@@ -25,6 +21,5 @@ public class MainActivity extends AppCompatActivity{
     public Context getContext() {
         return context;
     }
-
 
 }

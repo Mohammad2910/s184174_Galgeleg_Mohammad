@@ -27,6 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
         android:fontFamily="@font/aud"
+        android:background="@color/SplashBackground"
         android:text="@string/leaderboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
