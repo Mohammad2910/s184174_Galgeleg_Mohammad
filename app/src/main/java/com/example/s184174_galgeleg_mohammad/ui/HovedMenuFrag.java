@@ -13,7 +13,7 @@ import android.widget.Button;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
-import com.example.s184174_galgeleg_mohammad.Context;
+import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.Context;
 import com.example.s184174_galgeleg_mohammad.R;
 
 import java.util.concurrent.Executor;

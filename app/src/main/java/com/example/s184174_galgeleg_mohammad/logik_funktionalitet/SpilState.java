@@ -1,7 +1,5 @@
 package com.example.s184174_galgeleg_mohammad.logik_funktionalitet;
 
-import com.example.s184174_galgeleg_mohammad.Context;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
