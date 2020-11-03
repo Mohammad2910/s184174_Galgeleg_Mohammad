@@ -2,6 +2,8 @@ package com.example.s184174_galgeleg_mohammad.fragment;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,9 @@ import com.example.s184174_galgeleg_mohammad.states.HovedMenuState;
 import com.example.s184174_galgeleg_mohammad.states.SpilState;
 import com.example.s184174_galgeleg_mohammad.states.VundetState;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class VundetFrag extends Fragment implements View.OnClickListener {
     View rod;
     private Context logik;
@@ -27,6 +32,8 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
     EditText spillernavn;
     int point;
     int a = 0;
+    Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
+    Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
@@ -61,8 +68,14 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v == rod.findViewById(R.id.nytspil)) {
-            logik.setCurrentState("SpilState");
-            getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).commit();
+            bgThread.execute(()->{
+                logik.setCurrentState("SpilState");
+                uiThread.post(()->{
+                    logik.startNytSpil();
+                    Toast.makeText(main, "Starter nyt spil", Toast.LENGTH_SHORT).show();
+                    getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).addToBackStack(null).commit();
+                });
+            });
         } else if ( v == rod.findViewById(R.id.hjem)) {
             logik.setCurrentState("HovedMenuState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new HovedMenuFrag()).commit();

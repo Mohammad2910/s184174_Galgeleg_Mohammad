@@ -22,8 +22,8 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
     private TextView besked;
     private TextView ordet;
     private EditText inputBogstav;
-
-
+    private TextView lukkedeBogstaverBesked;
+    private TextView lukkedeBogstaver;
 
 
     View rod;
@@ -40,6 +40,10 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
         ordet = rod.findViewById(R.id.Ordet);
         ordet.setText(logik.getSynligtOrd());
 
+        lukkedeBogstaverBesked = rod.findViewById(R.id.lukkedeBogstaverBesked);
+        lukkedeBogstaver = rod.findViewById(R.id.lukkedeBogstaver);
+        lukkedeBogstaver.setText("");
+
         inputBogstav = rod.findViewById(R.id.InputBogstav);
         Button gaet = rod.findViewById(R.id.Gæt);
         gaet.setOnClickListener(this);
@@ -52,6 +56,7 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
         if (v == rod.findViewById(R.id.Gæt)) {
             logik.gætBogstav(inputBogstav.getText().toString());
             ordet.setText(logik.getSynligtOrd());
+            lukkedeBogstaver.setText(logik.getBrugteBogstaver().toString());
             inputBogstav.setText("");
             galgeBilled.UpdatePicture(logik.getAntalForkerteBogstaver());
 

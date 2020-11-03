@@ -1,11 +1,14 @@
 package com.example.s184174_galgeleg_mohammad.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -13,10 +16,15 @@ import com.example.s184174_galgeleg_mohammad.Context;
 import com.example.s184174_galgeleg_mohammad.MainActivity;
 import com.example.s184174_galgeleg_mohammad.R;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 public class TabtFrag extends Fragment implements View.OnClickListener {
     View rod;
     private Context logik;
     private MainActivity main;
+    Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
+    Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
@@ -44,8 +52,14 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v == rod.findViewById(R.id.nytspiltabt)) {
-            logik.setCurrentState("SpilState");
-            getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).commit();
+            bgThread.execute(()->{
+                logik.setCurrentState("SpilState");
+                uiThread.post(()->{
+                    logik.startNytSpil();
+                    Toast.makeText(main, "Starter nyt spil", Toast.LENGTH_SHORT).show();
+                    getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).addToBackStack(null).commit();
+                });
+            });
         } else if ( v == rod.findViewById(R.id.hjemtabt)) {
             logik.setCurrentState("HovedMenuState");
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new HovedMenuFrag()).commit();

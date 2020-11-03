@@ -10,11 +10,11 @@
         android:id="@+id/vundet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
+        android:layout_marginTop="101dp"
+        android:fontFamily="@font/aud"
         android:gravity="center_horizontal"
         android:text="@string/hurra_du_har_vundet"
         android:textSize="20dp"
-        android:fontFamily="@font/aud"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +23,10 @@
         android:id="@+id/nytspil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="42dp"
-        android:layout_marginBottom="136dp"
-        android:text="Nyt spil"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="73dp"
         android:fontFamily="@font/aud"
+        android:text="Nyt spil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -34,43 +34,41 @@
         android:id="@+id/hjem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="41dp"
-        android:text="Hjem"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
         android:fontFamily="@font/aud"
-        app:layout_constraintBottom_toBottomOf="@+id/nytspil"
+        android:text="Hjem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nytspil" />
+        app:layout_constraintTop_toBottomOf="@+id/gemButton" />
 
     <TextView
         android:id="@+id/forkerte"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
-        android:layout_marginEnd="99dp"
-        android:text="Antal forkerte: 0"
+        android:layout_marginEnd="26dp"
         android:fontFamily="@font/aud"
+        android:text="Antal forkerte: 0"
         app:layout_constraintBaseline_toBaselineOf="@+id/point"
-        app:layout_constraintEnd_toEndOf="@+id/vundet"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/point" />
 
     <TextView
         android:id="@+id/point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="37dp"
-        android:text="Antal point: 15"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="11dp"
         android:fontFamily="@font/aud"
-        app:layout_constraintStart_toEndOf="@+id/forkerte"
+        android:text="Antal point: 15"
+        app:layout_constraintEnd_toEndOf="@+id/winAnimation"
         app:layout_constraintTop_toBottomOf="@+id/vundet" />
 
     <TextView
         android:id="@+id/GemBesked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="333dp"
-        android:text="Indtast venligst dit navn, hvis du vil gemme din score"
+        android:layout_marginBottom="223dp"
         android:fontFamily="@font/aud"
+        android:text="Indtast venligst dit navn, hvis du vil gemme din score"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/gemButton" />
 
@@ -79,11 +77,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Indtast spillernavn"
+        android:layout_marginTop="23dp"
         android:digits="abcdefghijklmnopqrstuvxyzæøåABCDEFGHIJKLMNOPQRSTUVXYZÆØÅ"
+        android:ems="10"
         android:fontFamily="@font/aud"
+        android:hint="Indtast spillernavn"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/gemButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,10 +92,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="11dp"
-        android:text="Gem"
         android:fontFamily="@font/aud"
+        android:text="Gem"
         app:layout_constraintBaseline_toBaselineOf="@+id/spillernavn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spillernavn" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/winAnimation"
+        android:layout_width="227dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/GemBesked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/forkerte"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/winner"
+        app:lottie_url="REPLACE_JSON_URL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

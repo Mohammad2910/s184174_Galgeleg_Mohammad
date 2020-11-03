@@ -10,10 +10,10 @@
         android:id="@+id/tabt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="206dp"
-        android:textSize="20dp"
-        android:text="@string/better_luck_next_time"
+        android:layout_marginTop="257dp"
         android:fontFamily="@font/aud"
+        android:text="@string/better_luck_next_time"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,10 +22,10 @@
         android:id="@+id/nytspiltabt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="50dp"
-        android:text="@string/pr_v_igen"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="37dp"
         android:fontFamily="@font/aud"
+        android:text="@string/pr_v_igen"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OrdetTabt" />
 
@@ -33,10 +33,10 @@
         android:id="@+id/hjemtabt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="37dp"
-        android:text="hjem"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="44dp"
         android:fontFamily="@font/aud"
+        android:text="hjem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OrdetTabt" />
 
@@ -44,13 +44,27 @@
         android:id="@+id/OrdetTabt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/aud"
         android:text="TextView"
         android:textSize="25dp"
-        android:fontFamily="@font/aud"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabt" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/tabtAnimation"
+        android:layout_width="161dp"
+        android:layout_height="167dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tabt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/lose"
+        app:lottie_url="REPLACE_JSON_URL" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

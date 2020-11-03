@@ -12,6 +12,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="212dp"
         android:fontFamily="@font/aud"
+        android:background="@color/SplashBackground"
         android:text="@string/start_nyt_spil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

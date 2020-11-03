@@ -3,33 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="?android:attr/actionBarSize">
 
     <TextView
         android:id="@+id/Besked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp"
-        android:text="En besked"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/aud"
+        android:text="En besked"
         app:layout_constraintBottom_toTopOf="@+id/Ordet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Ordet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="31dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Et ord"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/aud"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Et ord"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/lukkedeBogstaverBesked"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.589" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/InputBogstav"
@@ -37,37 +38,62 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
+        android:layout_marginBottom="20dp"
+        android:digits="abcdefghijklmnopqrstuvwxyzæøåABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
         android:ems="10"
-        android:hint="@string/g_t_et_bogstav"
-        android:digits="abcdefghijklmnopqrstuvxyzæøåABCDEFGHIJKLMNOPQRSTUVXYZÆØÅ"
-        android:maxLength="1"
         android:fontFamily="@font/aud"
+        android:hint="@string/g_t_et_bogstav"
         android:inputType="textPersonName"
+        android:maxLength="1"
+        app:layout_constraintBottom_toTopOf="@+id/Gæt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ordet" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Gæt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/g_t"
+        android:layout_marginBottom="84dp"
         android:fontFamily="@font/aud"
+        android:text="@string/g_t"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputBogstav" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <FrameLayout
         android:id="@+id/FrameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="126dp"
+        android:layout_width="240dp"
+        android:layout_height="216dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/Besked"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/lukkedeBogstaverBesked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/bogstaver_du_har_g_ttet_p"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBottom_toTopOf="@+id/lukkedeBogstaver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lukkedeBogstaver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="TextView"
+        android:fontFamily="@font/aud"
+        app:layout_constraintBottom_toTopOf="@+id/InputBogstav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

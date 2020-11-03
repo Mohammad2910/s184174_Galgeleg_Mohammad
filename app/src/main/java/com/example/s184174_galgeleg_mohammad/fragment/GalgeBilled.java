@@ -15,9 +15,9 @@ public class GalgeBilled extends Fragment {
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
-        View rod = i.inflate(R.layout.galgen, container, false);
+        View rod = i.inflate(R.layout.galgebilled, container, false);
         imageView = rod.findViewById(R.id.FragmentImage);
-        imageView.setImageResource(R.drawable.galge);
+        //imageView.setImageResource(R.drawable.galge);
         return rod;
     }
 

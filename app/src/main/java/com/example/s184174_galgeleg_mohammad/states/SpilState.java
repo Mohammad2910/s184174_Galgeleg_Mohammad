@@ -9,11 +9,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 
 public class SpilState extends StateAdapter {
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
-    ArrayList<String> muligeOrd = new ArrayList<String>();
+    List<String> muligeOrd;
     private String ordet;
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private String synligtOrd;
@@ -24,10 +25,9 @@ public class SpilState extends StateAdapter {
     private int point;
 
 
-
     public void onEnterState(Context context) {
-        muligeOrd.add("bil");
-        /*muligeOrd.add("computer");
+        /*muligeOrd.add("bil");
+        muligeOrd.add("computer");
         muligeOrd.add("programmering");
         muligeOrd.add("motorvej");
         muligeOrd.add("busrute");
@@ -35,7 +35,12 @@ public class SpilState extends StateAdapter {
         muligeOrd.add("skovsnegl");
         muligeOrd.add("solsort");
         muligeOrd.add("tyve");*/
-        startNytSpil();
+        try {
+            muligeOrd = hentOrdFraRegneark("2");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //startNytSpil();
     }
 
 
@@ -190,7 +195,7 @@ public class SpilState extends StateAdapter {
      * @throws Exception
      */
 
-    public void hentOrdFraRegneark(String sværhedsgrader) throws Exception {
+    public List<String> hentOrdFraRegneark(String sværhedsgrader) throws Exception {
         String id = "1RnwU9KATJB94Rhr7nurvjxfg09wAHMZPYB3uySBPO6M";
 
         System.out.println("Henter data som kommasepareret CSV fra regnearket https://docs.google.com/spreadsheets/d/"+id+"/edit?usp=sharing");
@@ -198,7 +203,8 @@ public class SpilState extends StateAdapter {
         String data = hentUrl("https://docs.google.com/spreadsheets/d/" + id + "/export?format=csv&id=" + id);
         int linjeNr = 0;
 
-        muligeOrd.clear();
+        // muligeOrd.clear();
+        List<String> muligeOrd = new ArrayList<>();
         for (String linje : data.split("\n")) {
             if (linjeNr<20) System.out.println("Læst linje = " + linje); // udskriv de første 20 linjer
             if (linjeNr++ < 1 ) continue; // Spring første linje med kolonnenavnene over
@@ -212,7 +218,8 @@ public class SpilState extends StateAdapter {
         }
 
         System.out.println("muligeOrd = " + muligeOrd);
-        startNytSpil();
+        //startNytSpil();
+        return muligeOrd;
     }
 
     /*public static void main(String[] args) throws Exception {
