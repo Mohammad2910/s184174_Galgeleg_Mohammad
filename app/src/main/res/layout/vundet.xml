@@ -82,6 +82,7 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Indtast spillernavn"
+        android:digits="abcdefghijklmnopqrstuvxyzæøåABCDEFGHIJKLMNOPQRSTUVXYZÆØÅ"
         android:fontFamily="@font/aud"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/gemButton"
