@@ -28,7 +28,7 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
-        rod = i.inflate(R.layout.tabt, container, false);
+        rod = i.inflate(R.layout.frag_tabt, container, false);
 
         main = (MainActivity) getActivity();
         logik = main.getContext();

@@ -13,7 +13,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.splashscreen);
+        setContentView(R.layout.activity_splashscreen);
 
         handler=new Handler();
         handler.postDelayed(new Runnable() {

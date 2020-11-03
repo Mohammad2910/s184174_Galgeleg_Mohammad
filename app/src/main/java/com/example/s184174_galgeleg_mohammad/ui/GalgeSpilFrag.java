@@ -31,7 +31,7 @@ public class GalgeSpilFrag extends Fragment implements View.OnClickListener {
 
     View rod;
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
-        rod = i.inflate(R.layout.galgespil, container, false);
+        rod = i.inflate(R.layout.frag_galgespil, container, false);
         getFragmentManager().beginTransaction().add(R.id.FrameLayout, galgeBilled).addToBackStack(null).commit();
 
         main = (MainActivity) getActivity();

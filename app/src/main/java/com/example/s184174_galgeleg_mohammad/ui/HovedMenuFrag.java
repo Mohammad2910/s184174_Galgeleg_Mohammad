@@ -26,7 +26,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
-        rod = i.inflate(R.layout.hovedmenufrag, container, false);
+        rod = i.inflate(R.layout.frag_hovedmenu, container, false);
         main = (MainActivity) getActivity();
         logik = main.getContext();
 

@@ -22,14 +22,14 @@ public class LeaderboardFrag extends Fragment {
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
-        rod = i.inflate(R.layout.leaderboard, container, false);
+        rod = i.inflate(R.layout.frag_leaderboard, container, false);
         leaderboardliste = rod.findViewById(R.id.Leaderboard);
 
         main = (MainActivity) getActivity();
         logik = main.getContext();
 
 
-        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.list_element, R.id.listElement, logik.getLeaderboard()){
+        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.frag_list_element, R.id.listElement, logik.getLeaderboard()){
 
             @Override
             public View getView(int position, View cachedView, ViewGroup parent){
