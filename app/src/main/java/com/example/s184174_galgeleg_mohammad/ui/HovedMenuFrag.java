@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 
@@ -51,7 +50,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
                 // AlertDialog Builder class
                 AlertDialog.Builder builder = new AlertDialog.Builder(main);
                 // Set the message show for the Alert time
-                builder.setMessage("Vil du afslutte spillet?");
+                builder.setMessage("Vil du afslutte appen?");
                 builder.setTitle("Advarsel!");
                 // Set Cancelable false, for when the user clicks on the outside of the Dialog Box then it will remain show
                 builder.setCancelable(false);
