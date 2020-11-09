@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.Context;
 import com.example.s184174_galgeleg_mohammad.R;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -98,6 +100,8 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
                 // leaderboardstate's metode på den globale leaderboard List (attribut i Context).
                 logik.setCurrentState("leaderboardstate");
                 logik.AddToList(spillernavn.getText().toString(), point, logik.getLeaderboard());
+                Set <String> liste = new HashSet<>(logik.getLeaderboard());
+                logik.getPrefs().edit().putStringSet("Score", liste).apply();
                 Toast.makeText(main, "Gemt", Toast.LENGTH_SHORT).show();
                 logik.setCurrentState("vundetstate");
             }

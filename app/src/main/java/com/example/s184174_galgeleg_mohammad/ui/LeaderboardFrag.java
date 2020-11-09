@@ -13,11 +13,18 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.Context;
 import com.example.s184174_galgeleg_mohammad.R;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class LeaderboardFrag extends Fragment {
     View rod;
     private Context logik;
     private MainActivity main;
     ListView leaderboardliste;
+    ArrayList<String> listen;
+    Set<String> tom = new HashSet<String>();
 
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
@@ -27,9 +34,11 @@ public class LeaderboardFrag extends Fragment {
 
         main = (MainActivity) getActivity();
         logik = main.getContext();
+        listen = new ArrayList<String>(logik.getPrefs().getStringSet("Score", tom));
 
 
-        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.frag_list_element, R.id.listElement, logik.getLeaderboard()){
+
+        ArrayAdapter leaderboardAdapter = new ArrayAdapter(getActivity(), R.layout.frag_list_element, R.id.listElement, listen){
 
             @Override
             public View getView(int position, View cachedView, ViewGroup parent){
