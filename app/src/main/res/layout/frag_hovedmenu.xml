@@ -57,12 +57,12 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginEnd="27dp"
         android:layout_marginBottom="18dp"
         android:fontFamily="@font/aud"
         android:text="- Man mister 2 point for hvert forkert bogstav"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4" />
+        app:layout_constraintEnd_toEndOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView4"
@@ -74,4 +74,15 @@
         android:text="- Man kan gemme point kun hvis man vinder spillet :P"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="9dp"
+        app:layout_constraintStart_toStartOf="@+id/NytSpil"
+        app:layout_constraintTop_toBottomOf="@+id/NytSpil"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
