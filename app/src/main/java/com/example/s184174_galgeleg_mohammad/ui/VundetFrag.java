@@ -1,5 +1,6 @@
 package com.example.s184174_galgeleg_mohammad.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -26,6 +27,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
     View rod;
     private Context logik;
     private MainActivity main;
+    private MediaPlayer mediaPlayer;
     EditText spillernavn;
     int point;
     int a = 0;
@@ -38,6 +40,8 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
         main = (MainActivity) getActivity();
         logik = main.getContext();
 
+        mediaPlayer = MediaPlayer.create(main, R.raw.win);
+        mediaPlayer.start();
         TextView textView = rod.findViewById(R.id.vundet);
 
         int antal = logik.getPrefs().getInt("Antal", 10);
@@ -79,6 +83,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        mediaPlayer.stop();
         if(v == rod.findViewById(R.id.nytspil)) {
             bgThread.execute(()->{
                 logik.setCurrentState("SpilState");
@@ -86,6 +91,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
                     logik.startNytSpil();
                     Toast.makeText(main, "Starter nyt spil", Toast.LENGTH_SHORT).show();
                     getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new GalgeSpilFrag()).addToBackStack(null).commit();
+
                 });
             });
         } else if ( v == rod.findViewById(R.id.hjem)) {

@@ -1,5 +1,6 @@
 package com.example.s184174_galgeleg_mohammad.ui;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,6 +24,7 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
     View rod;
     private Context logik;
     private MainActivity main;
+    private MediaPlayer mediaPlayer;
     Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
     Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
@@ -32,6 +34,8 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
 
         main = (MainActivity) getActivity();
         logik = main.getContext();
+        mediaPlayer = MediaPlayer.create(main, R.raw.laugh);
+        mediaPlayer.start();
 
         TextView textView = rod.findViewById(R.id.tabt);
 
@@ -65,6 +69,7 @@ public class TabtFrag extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        mediaPlayer.stop();
         if(v == rod.findViewById(R.id.nytspiltabt)) {
             bgThread.execute(()->{
                 logik.setCurrentState("SpilState");
