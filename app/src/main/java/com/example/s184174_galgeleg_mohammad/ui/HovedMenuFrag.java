@@ -58,7 +58,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
                 // AlertDialog Builder class
                 AlertDialog.Builder builder = new AlertDialog.Builder(main);
                 // Set the message show for the Alert time
-                builder.setMessage("Vil du afslutte appen?");
+                builder.setMessage("Vil du forlade appen?");
                 builder.setTitle("Advarsel!");
                 // Set Cancelable false, for when the user clicks on the outside of the Dialog Box then it will remain show
                 builder.setCancelable(false);
@@ -66,7 +66,7 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
                 builder.setPositiveButton("Ja",new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        main.finish();
+                        System.exit(0);
                     }
                 });
                 builder.setNegativeButton("Nej", new DialogInterface.OnClickListener() {
