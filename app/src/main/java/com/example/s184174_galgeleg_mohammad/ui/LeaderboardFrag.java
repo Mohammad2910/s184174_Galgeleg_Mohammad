@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -50,7 +51,7 @@ public class LeaderboardFrag extends Fragment implements AdapterView.OnItemClick
             public View getView(int position, View cachedView, ViewGroup parent){
                 View view = super.getView(position, cachedView, parent);
                 TextView listView = view.findViewById(R.id.listElement);
-
+                ImageView slet = view.findViewById(R.id.slet);
                 return view;
             }
         };
