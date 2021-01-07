@@ -24,15 +24,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class VundetFrag extends Fragment implements View.OnClickListener {
-    View rod;
+    private View rod;
     private Context logik;
     private MainActivity main;
     private MediaPlayer mediaPlayer;
-    EditText spillernavn;
-    int point;
-    int a = 0;
-    Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
-    Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
+    private EditText spillernavn;
+    private int point;
+    private Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
+    private Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 

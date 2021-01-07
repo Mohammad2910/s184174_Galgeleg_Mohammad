@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/SplashBackground">
 
-    <EditText
+    <TextView
         android:id="@+id/Titel"
         android:layout_width="match_parent"
         android:layout_height="74dp"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/Udvikler"
         android:layout_width="match_parent"
         android:layout_height="40dp"

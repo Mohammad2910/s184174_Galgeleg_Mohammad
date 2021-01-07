@@ -21,12 +21,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class TabtFrag extends Fragment implements View.OnClickListener {
-    View rod;
+    private View rod;
     private Context logik;
     private MainActivity main;
     private MediaPlayer mediaPlayer;
-    Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
-    Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
+    private Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
+    private Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 

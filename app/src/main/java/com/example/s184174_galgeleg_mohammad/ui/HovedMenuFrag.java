@@ -18,19 +18,17 @@ import androidx.fragment.app.Fragment;
 import com.example.s184174_galgeleg_mohammad.logik_funktionalitet.Context;
 import com.example.s184174_galgeleg_mohammad.R;
 
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class HovedMenuFrag extends Fragment implements View.OnClickListener {
-    Button spilknap, leaderboardknap;
-    View rod;
+    private Button spilknap, leaderboardknap;
+    private View rod;
     private Context logik;
     private MainActivity main;
     private ProgressBar progressBar;
-    Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
-    Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
+    private Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
+    private Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
 
@@ -106,25 +104,5 @@ public class HovedMenuFrag extends Fragment implements View.OnClickListener {
             getFragmentManager().beginTransaction().replace(R.id.MainFrameLayout, new LeaderboardFrag()).addToBackStack(null).commit();
         }
     }
-
-//    private void progressBar(){
-//        //Gør progressbaren synlig igen
-//        progressBar.setVisibility(View.VISIBLE);
-//
-//        //Timer til progressbaren
-//        final Timer t = new Timer();
-//        TimerTask tt = new TimerTask() {
-//            @Override
-//            public void run() {
-//                counter++;
-//                progressBar.setProgress(counter);
-//
-//                if (counter == 100){
-//                    t.cancel();
-//                }
-//            }
-//        };
-//        t.schedule(tt,0,100);
-//    }
 
 }

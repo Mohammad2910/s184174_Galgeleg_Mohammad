@@ -17,7 +17,6 @@ public class GalgeBilled extends Fragment {
 
         View rod = i.inflate(R.layout.frag_galgebilled, container, false);
         imageView = rod.findViewById(R.id.FragmentImage);
-        //imageView.setImageResource(R.drawable.galge);
         return rod;
     }
 

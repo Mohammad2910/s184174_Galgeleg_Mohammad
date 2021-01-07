@@ -19,12 +19,12 @@ import java.util.List;
 import java.util.Set;
 
 public class LeaderboardFrag extends Fragment {
-    View rod;
+    private View rod;
     private Context logik;
     private MainActivity main;
-    ListView leaderboardliste;
-    ArrayList<String> listen;
-    Set<String> tom = new HashSet<String>();
+    private ListView leaderboardliste;
+    private ArrayList<String> listen;
+    private Set<String> tom = new HashSet<String>();
 
 
     public View onCreateView(LayoutInflater i, ViewGroup container, Bundle SavedInstanceState) {
@@ -35,6 +35,7 @@ public class LeaderboardFrag extends Fragment {
         main = (MainActivity) getActivity();
         logik = main.getContext();
         listen = new ArrayList<String>(logik.getPrefs().getStringSet("Score", tom));
+
 
 
 

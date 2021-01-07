@@ -19,10 +19,5 @@ public interface State {
     void logStatus();
 
     void AddToList (String navn, int point, ArrayList<String> leaderboard);
-    /* static String hentUrl(String url) throws IOException {
-        return null;
-    }
-    void hentOrdFraDr() throws Exception;
-    void hentOrdFraRegneark(String sværhedsgrader) throws Exception;*/
 
 }
