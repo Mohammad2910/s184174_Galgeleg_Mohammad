@@ -1,6 +1,8 @@
 package com.example.s184174_galgeleg_mohammad.ui;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,13 +63,34 @@ public class LeaderboardFrag extends Fragment implements AdapterView.OnItemClick
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(main);
+        // Set the message show for the Alert time
+        builder.setMessage("Vil du slette scoren?");
+        builder.setTitle("Obs!");
+        // Set Cancelable false, for when the user clicks on the outside of the Dialog Box then it will remain show
+        builder.setCancelable(false);
 
+        builder.setPositiveButton("Ja",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                logik.RemoveFromList(position, listen);
+                leaderboardAdapter.notifyDataSetChanged();
 
-        logik.RemoveFromList(position, listen);
-        leaderboardAdapter.notifyDataSetChanged();
+                // Opdaterer preference manager, den skal nok være i LeaderboardState inde i RemoveFromList metoden.
+                Set <String> ny =  new HashSet<>(listen);
+                logik.getPrefs().edit().putStringSet("Score", ny).apply();            }
+        });
+        builder.setNegativeButton("Nej", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
-        // Opdaterer preference manager, den skal nok være i LeaderboardState inde i RemoveFromList metoden.
-        Set <String> ny =  new HashSet<>(listen);
-        logik.getPrefs().edit().putStringSet("Score", ny).apply();
+        // Create the Alert dialog
+        AlertDialog alertDialog = builder.create();
+
+        // Show the Alert Dialog box
+        alertDialog.show();
     }
 }

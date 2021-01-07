@@ -20,7 +20,10 @@ public class Context {
         prefs = PreferenceManager.getDefaultSharedPreferences(UI);
 
         // Sætter nogle random score ind i listen, så leaderboard ikke er tom til at starte med.
-
+        leaderboard.add("Hans: 12");
+        leaderboard.add("John: 20");
+        leaderboard.add("Hernandez: 15");
+        leaderboard.add("Mohammad: 35");
 
         currentState = new HovedMenuState();
         currentState.onEnterState(this);
