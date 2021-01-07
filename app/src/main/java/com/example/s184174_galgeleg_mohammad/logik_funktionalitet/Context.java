@@ -12,7 +12,7 @@ public class Context {
     private StateFactory stateFactory = new StateFactory();
     private SharedPreferences prefs;
     private MainActivity ui;
-    private State currentState;
+    private IState currentState;
     private ArrayList<String> leaderboard = new ArrayList<String>();
 
     public Context(MainActivity UI) {
@@ -20,10 +20,7 @@ public class Context {
         prefs = PreferenceManager.getDefaultSharedPreferences(UI);
 
         // Sætter nogle random score ind i listen, så leaderboard ikke er tom til at starte med.
-        leaderboard.add("Hans: 12");
-        leaderboard.add("John: 20");
-        leaderboard.add("Hernandez: 15");
-        leaderboard.add("Mohammad: 35");
+
 
         currentState = new HovedMenuState();
         currentState.onEnterState(this);
@@ -34,7 +31,7 @@ public class Context {
         currentState.onEnterState(this);
     }
 
-    public State getCurrentState(){
+    public IState getCurrentState(){
         return currentState;
     }
 
@@ -63,5 +60,6 @@ public class Context {
     public void gætBogstav(String bogstav){currentState.gætBogstav(bogstav);}
     public void logStatus(){currentState.logStatus();}
     public void AddToList (String navn, int point, ArrayList<String> leaderboard) {currentState.AddToList(navn, point, leaderboard);}
+    public void RemoveFromList (int position, ArrayList<String> leaderboard){currentState.RemoveFromList(position, leaderboard);};
 
 }

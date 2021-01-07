@@ -29,6 +29,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
     private MainActivity main;
     private MediaPlayer mediaPlayer;
     private EditText spillernavn;
+    private Button gemNavn;
     private int point;
     private Executor bgThread = Executors.newSingleThreadExecutor(); // håndtag til en baggrundstråd
     private Handler uiThread = new Handler(Looper.getMainLooper());  // håndtag til forgrundstråden
@@ -53,7 +54,7 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
 
         TextView scoreBesked = rod.findViewById(R.id.GemBesked);
         spillernavn = rod.findViewById(R.id.spillernavn);
-        Button gemNavn = rod.findViewById(R.id.gemButton);
+        gemNavn = rod.findViewById(R.id.gemButton);
         gemNavn.setOnClickListener(this);
 
         Button nytSpil = rod.findViewById(R.id.nytspil);
@@ -101,9 +102,14 @@ public class VundetFrag extends Fragment implements View.OnClickListener {
             if (spillernavn.getText().toString().equals("")) {
                 Toast.makeText(main, "Advarsel: Indtast et navn", Toast.LENGTH_SHORT).show();
             } else {
+                gemNavn.setEnabled(false);
                 // Skifter lige midlertidigt state, så jeg kan gemme navn og point med
                 // leaderboardstate's metode på den globale leaderboard List (attribut i Context).
                 logik.setCurrentState("leaderboardstate");
+
+                /* Tager de gemte navne fra preference manager og gemmer det ind i arraylisten i Context,
+                da arraylisten i Context er tom ved app opstart.*/
+                logik.getLeaderboard().addAll(logik.getPrefs().getStringSet("Score", null));
                 logik.AddToList(spillernavn.getText().toString(), point, logik.getLeaderboard());
                 Set <String> liste = new HashSet<>(logik.getLeaderboard());
                 logik.getPrefs().edit().putStringSet("Score", liste).apply();

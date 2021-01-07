@@ -2,7 +2,7 @@ package com.example.s184174_galgeleg_mohammad.logik_funktionalitet;
 
 import java.util.ArrayList;
 
-public class StateAdapter implements State {
+public class StateAdapter implements IState {
     @Override
     public void onEnterState(Context context) {
     }
@@ -70,6 +70,10 @@ public class StateAdapter implements State {
 
     @Override
     public void AddToList (String navn, int point, ArrayList<String> leaderboard) {
+    }
+
+    @Override
+    public void RemoveFromList(int position, ArrayList<String> leaderboard) {
     }
 
 

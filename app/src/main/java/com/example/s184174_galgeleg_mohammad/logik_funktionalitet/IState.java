@@ -2,7 +2,7 @@ package com.example.s184174_galgeleg_mohammad.logik_funktionalitet;
 
 import java.util.ArrayList;
 
-public interface State {
+public interface IState {
     void onEnterState(Context context);
     ArrayList<String> getBrugteBogstaver();
     String getSynligtOrd();
@@ -17,7 +17,7 @@ public interface State {
     void opdaterSynligtOrd();
     void gætBogstav(String bogstav);
     void logStatus();
-
     void AddToList (String navn, int point, ArrayList<String> leaderboard);
+    void RemoveFromList (int position, ArrayList<String> leaderboard);
 
 }

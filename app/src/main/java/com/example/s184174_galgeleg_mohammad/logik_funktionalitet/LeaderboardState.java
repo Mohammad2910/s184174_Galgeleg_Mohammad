@@ -14,4 +14,8 @@ public class LeaderboardState extends StateAdapter {
         leaderboard.add(navn + ": " + i.toString());
     }
 
+    public void RemoveFromList (int position, ArrayList<String> leaderboard) {
+        leaderboard.remove(position);
+    }
+
 }

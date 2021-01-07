@@ -3,7 +3,7 @@ package com.example.s184174_galgeleg_mohammad.logik_funktionalitet;
 public class StateFactory {
 
 
-    public State getState(String stateType) {
+    public IState getState(String stateType) {
         if (stateType == null) {
             return null;
         }
